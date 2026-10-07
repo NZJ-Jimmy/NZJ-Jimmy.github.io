@@ -1,0 +1,4 @@
+[submodule "content/GNU-Linux-Guides"]
+	path = content/GNU-Linux-Guides
+	url = https://github.com/E-Vertin/GNU-Linux-Guides.git
+	branch = main
