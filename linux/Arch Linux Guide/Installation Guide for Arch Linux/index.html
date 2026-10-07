@@ -1,0 +1,2393 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="GNU/Linux installation guides, tips and notes">
+      
+      
+      
+        <link rel="canonical" href="https://nzj-jimmy.github.io/linux/Arch%20Linux%20Guide/Installation%20Guide%20for%20Arch%20Linux/">
+      
+      
+        <link rel="prev" href="../Arch%20%E4%BD%BF%E7%94%A8%E8%B2%BC%E5%A3%AB/">
+      
+      
+        <link rel="next" href="../Tips%20for%20Using%20Arch/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Installation Guide - GNU/Linux Guides</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#installation-guide-for-arch-linux" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="GNU/Linux Guides" class="md-header__button md-logo" aria-label="GNU/Linux Guides" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            GNU/Linux Guides
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Installation Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/E-Vertin/GNU-Linux-Guides" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    E-Vertin/GNU-Linux-Guides
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../.." class="md-tabs__link">
+          
+  
+  
+  首页
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../Arch%20Linux%20%E5%AE%89%E8%A3%9D%E6%8C%87%E5%8D%97/" class="md-tabs__link">
+          
+  
+  
+  Arch Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../EOS%20Guide/Installation%20Guide%20for%20Endeavour%20OS%2C%20A%20Distro%20Based%20On%20archlinux/" class="md-tabs__link">
+          
+  
+  
+  EndeavourOS
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../Gentoo%20Guide/Gentoo%20Linux%20%E5%AE%89%E8%A3%9D%E6%8C%87%E5%8D%97/" class="md-tabs__link">
+          
+  
+  
+  Gentoo Linux
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../General%20Tips/General%20Tips/" class="md-tabs__link">
+          
+  
+  
+  通用技巧
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="GNU/Linux Guides" class="md-nav__button md-logo" aria-label="GNU/Linux Guides" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    GNU/Linux Guides
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/E-Vertin/GNU-Linux-Guides" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg>
+  </div>
+  <div class="md-source__repository">
+    E-Vertin/GNU-Linux-Guides
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" >
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    首页
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    首页
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    English
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../README.zh-HK/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    繁體中文
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Arch Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Arch Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arch%20Linux%20%E5%AE%89%E8%A3%9D%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安裝指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Arch%20%E4%BD%BF%E7%94%A8%E8%B2%BC%E5%A3%AB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用貼士
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#archive-and-burn-the-installation-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Archive and burn the installation media
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulate-uefi-bios-settings-to-enter-the-live-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manipulate UEFI BIOS settings to enter the Live ISO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulate UEFI BIOS settings to enter the Live ISO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-pcs-from-asus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For PCs from ASUS:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparation-before-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparation before installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparation before installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#select-your-keymap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select your keymap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-what-font-to-be-used-in-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select what font to be used in console
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-the-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect to the Internet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect to the Internet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-internet-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Internet access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choose-a-timezone-for-the-operating-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choose a timezone for the operating system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-your-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare your disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perform-the-installation-in-the-live-iso-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perform the installation in the Live ISO environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perform the installation in the Live ISO environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-using-archinstall-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install using archinstall helper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-arch-in-the-manual-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Arch in the manual way
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing Arch in the manual way">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prepare-your-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare your LVM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-file-systems-in-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create file systems in LVM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-basic-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install basic packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-file-system-table-for-the-new-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a file system table for the new installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enter-chroot-environment-to-configure-the-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enter chroot environment to configure the system
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../Tips%20for%20Using%20Arch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tips for Using Arch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    EndeavourOS
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    EndeavourOS
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../EOS%20Guide/Installation%20Guide%20for%20Endeavour%20OS%2C%20A%20Distro%20Based%20On%20archlinux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gentoo Linux
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Gentoo Linux
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Gentoo%20Guide/Gentoo%20Linux%20%E5%AE%89%E8%A3%9D%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安裝指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Gentoo%20Guide/Gentoo%20%E4%BD%BF%E7%94%A8%E8%B2%BC%E5%A3%AB/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    使用貼士
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Gentoo%20Guide/Gentoo%20%E7%A3%81%E7%A2%9F%E5%8A%A0%E5%AF%86%E5%AE%89%E8%A3%9D/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    磁碟加密安裝
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Gentoo%20Guide/Gentoo%20%E5%AE%89%E5%85%A8%E5%95%93%E5%8B%95%E5%95%93%E7%94%A8%E6%8C%87%E5%8D%97/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    安全啓動指南
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Gentoo%20Guide/Installation%20Guide%20for%20Gentoo%20Linux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Gentoo%20Guide/Gentoo%20on%20LUKS/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gentoo on LUKS
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Gentoo%20Guide/Instructions%20for%20enabling%20Secure%20Boot%20via%20Shim%20on%20Gentoo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Secure Boot via Shim
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Gentoo%20Guide/Tips%20for%20Using%20Gentoo/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tips for Using Gentoo
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    通用技巧
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    通用技巧
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../General%20Tips/General%20Tips/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    General Tips
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#archive-and-burn-the-installation-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Archive and burn the installation media
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manipulate-uefi-bios-settings-to-enter-the-live-iso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Manipulate UEFI BIOS settings to enter the Live ISO
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manipulate UEFI BIOS settings to enter the Live ISO">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-pcs-from-asus" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For PCs from ASUS:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#preparation-before-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preparation before installation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Preparation before installation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#select-your-keymap" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select your keymap
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#select-what-font-to-be-used-in-console" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Select what font to be used in console
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#connect-to-the-internet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connect to the Internet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Connect to the Internet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#verify-internet-access" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify Internet access
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#choose-a-timezone-for-the-operating-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Choose a timezone for the operating system
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prepare-your-disk" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare your disk
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#perform-the-installation-in-the-live-iso-environment" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Perform the installation in the Live ISO environment
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Perform the installation in the Live ISO environment">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#install-using-archinstall-helper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install using archinstall helper
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#installing-arch-in-the-manual-way" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Installing Arch in the manual way
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Installing Arch in the manual way">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#prepare-your-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prepare your LVM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-file-systems-in-lvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create file systems in LVM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#install-basic-packages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install basic packages
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#create-a-file-system-table-for-the-new-installation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a file system table for the new installation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#enter-chroot-environment-to-configure-the-system" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Enter chroot environment to configure the system
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="installation-guide-for-arch-linux">Installation Guide for Arch Linux<a class="headerlink" href="#installation-guide-for-arch-linux" title="Permanent link">&para;</a></h1>
+<h2 id="archive-and-burn-the-installation-media">Archive and burn the installation media<a class="headerlink" href="#archive-and-burn-the-installation-media" title="Permanent link">&para;</a></h2>
+<p>Head to <a href="https://endeavouros.com/#Download">Arch's official website</a> to choose an ISO and archive</p>
+<p>It's recommended to make use of <a href="https://etcher.balena.io/">Etcher</a> to burn the ISO image into a USB flash drive.</p>
+<h2 id="manipulate-uefi-bios-settings-to-enter-the-live-iso">Manipulate UEFI BIOS settings to enter the Live ISO<a class="headerlink" href="#manipulate-uefi-bios-settings-to-enter-the-live-iso" title="Permanent link">&para;</a></h2>
+<blockquote>
+<p>What we are trying to address through the term "Arch Linux Live ISO" is its environment, which means you can always use others to get the job done. But we recommend you to use the EndeavourOS Live ISO to finish the task if you will have to configure your live environment such as connecting to an education network.</p>
+</blockquote>
+<h3 id="for-pcs-from-asus">For PCs from ASUS:<a class="headerlink" href="#for-pcs-from-asus" title="Permanent link">&para;</a></h3>
+<p>Hit <code>Escape</code> when the ASUS or ROG logo was displayed on the screen to enter the boot menu, then select <code>Enter UEFI Setup</code>.</p>
+<p>After entering, please hit <code>F7</code> to access to the "Advanced Menu", then go to the "Security" column and switch off "Secure Boot" or alternate it from <code>Windows UEFI</code> to <code>Other OS</code> or <code>Microsoft &amp; 3rd Party</code>.</p>
+<p>Apply settings and reset, then enter the boot menu again and choose <code>UEFI: &lt;Your Device Name&gt;</code> to load the <code>grub</code> bootloader, and select <code>Arch Linux install medium (x86_64, x64 UEFI)</code> to enter the live environment.</p>
+<h2 id="preparation-before-installation">Preparation before installation<a class="headerlink" href="#preparation-before-installation" title="Permanent link">&para;</a></h2>
+<h3 id="select-your-keymap">Select your keymap<a class="headerlink" href="#select-your-keymap" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>We'll be using the standard US keyboard in this guide.</p>
+</blockquote>
+<p>To list all keymaps, execute</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>localectl<span class="w"> </span>list-keymaps
+</code></pre></div>
+<blockquote>
+<p>You could use <code>|</code> (pipe) to redirect the output to <code>grep</code> to have it filtered. For example, if we want to filter US keyboards and its variations:</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>localectl<span class="w"> </span>list-keymaps<span class="w"> </span><span class="p">|</span><span class="w"> </span>grep<span class="w"> </span>us
+</code></pre></div>
+<p>The default keymap is the standard English (US) keyboard, please adjust according to your need.</p>
+<h3 id="select-what-font-to-be-used-in-console">Select what font to be used in console<a class="headerlink" href="#select-what-font-to-be-used-in-console" title="Permanent link">&para;</a></h3>
+<p>Letters might be too tiny to see in tty on a Hi-DPI display, that's when you can change your font.</p>
+<blockquote>
+<p>Please note that console fonts are stored in <code>/usr/share/kbd/consolefonts/</code>.</p>
+</blockquote>
+<p>To change your font, simply execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>setfont<span class="w"> </span>&lt;font<span class="w"> </span>that<span class="w"> </span>you<span class="w"> </span>want&gt;
+</code></pre></div>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>setfont<span class="w"> </span>&lt;ter-132b&gt;
+</code></pre></div>
+<h3 id="connect-to-the-internet">Connect to the Internet<a class="headerlink" href="#connect-to-the-internet" title="Permanent link">&para;</a></h3>
+<p>To check all network interfaces, execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>ip<span class="w"> </span>link
+</code></pre></div>
+<p>Then check the state of each interface, <code>UP</code> indicates it's enabled.</p>
+<p>To use WLAN or WWAN interfaces, check its status via <code>rfkill</code> first.</p>
+<blockquote>
+<p><code>rfkill</code> is a tool that can be used to manage network interfaces in GNU/Linux.</p>
+</blockquote>
+<p>To check all network interfaces, run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>rfkill<span class="w"> </span>list
+</code></pre></div>
+<p>You can enable an interface by executing:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>rfkill<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>&lt;ID&gt;
+</code></pre></div>
+<p>Take this output as an example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>0: phy0: Wireless LAN
+<a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>Soft blocked: yes
+<a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>Hard blocked: no
+<a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a>2: hci0: Bluetooth
+<a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a>Soft blocked: yes
+<a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a>Hard blocked: no
+</code></pre></div>
+<p>It's applicable to execute the following command to unblock the WLAN interface:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>rfkill<span class="w"> </span>unblock<span class="w"> </span><span class="m">0</span>
+</code></pre></div>
+<p>Now, we are able to try to connect to the Internet.</p>
+<ul>
+<li>
+<p>For ethernets, please check if your cable was plugged in firmly.</p>
+</li>
+<li>
+<p>For WLAN, please use <code>iwctl</code> or <code>nmtui</code> to authorise and join a network.</p>
+</li>
+</ul>
+<blockquote>
+<p><code>iwctl</code> is a CLI programme to manage <code>iwd</code> (iNet Wireless Daemon) interactively; <code>nmtui</code> is a TUI programme to manage <code>NetworkManager</code> and it's more user friendly.</p>
+</blockquote>
+<p>To use <code>iwctl</code> to check all available interfaces, execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>iwctl
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="o">[</span>iwd<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>device<span class="w"> </span>list
+</code></pre></div>
+<p>To obtain a list of available WLAN SSIDs, run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="o">[</span>iwd<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>station<span class="w"> </span>&lt;Name&gt;<span class="w"> </span>get-networks
+</code></pre></div>
+<p>Execute the following command to connect to your desired WLAN access point:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="o">[</span>iwd<span class="o">]</span><span class="w"> </span>&gt;<span class="w"> </span>station<span class="w"> </span>&lt;Name&gt;<span class="w"> </span>connect<span class="w"> </span>&lt;SSID&gt;
+</code></pre></div>
+<blockquote>
+<p><code>&lt;Name&gt;</code> is the interface that you want to use, <code>&lt;SSID&gt;</code> is the name of an access point.</p>
+</blockquote>
+<p>Enter your passcode to connect when <code>Passphrase:</code> was prompted.</p>
+<p>To use <code>nmtui</code> to connect to an access point, execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>nmtui
+</code></pre></div>
+<p>Then select <code>Activate a connection</code> from the menu and choose a WLAN SSID to connect and exit the programme.</p>
+<ul>
+<li>For WWAN modem, you can use <code>mmcli</code></li>
+</ul>
+<blockquote>
+<p>Given that WWAN modems are pretty rare these days, we will not give instructions here. (Related link <a href="https://wiki.archlinux.org/title/Mobile_broadband_modem#ModemManager">from Arch Wiki</a>)</p>
+</blockquote>
+<h4 id="verify-internet-access">Verify Internet access<a class="headerlink" href="#verify-internet-access" title="Permanent link">&para;</a></h4>
+<p>Execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>ping<span class="w"> </span>www.archlinux.org
+</code></pre></div>
+<p>Typically, if the output shows <code>time=&lt;latency&gt; ms</code>, then we are good to complete the installation since this indicates we have access to the Arch Linux repository.</p>
+<h3 id="choose-a-timezone-for-the-operating-system">Choose a timezone for the operating system<a class="headerlink" href="#choose-a-timezone-for-the-operating-system" title="Permanent link">&para;</a></h3>
+<p>Execute the following command to check the timezone and time of your current OS:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>timedatectl
+</code></pre></div>
+<p>To list all available timezones, execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>timedatectl<span class="w"> </span>list-timezone
+</code></pre></div>
+<p>Also, it's applicable to use <code>|</code> (pipe) and <code>grep</code> to filter the output.</p>
+<p>To choose a timezone, please run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>timedatectl<span class="w"> </span>set-timezone<span class="w"> </span>&lt;Timezone&gt;
+</code></pre></div>
+<p>For instance, running this will set your timezone to Hong Kong and use HKT (UTC+8):</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>timedatectl<span class="w"> </span>set-timezone<span class="w"> </span>Asia/Hong_Kong
+</code></pre></div>
+<p>For CST (UTC+8), run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>timedatectl<span class="w"> </span>set-timezone<span class="w"> </span>Asia/Chongqing
+</code></pre></div>
+<h3 id="prepare-your-disk">Prepare your disk<a class="headerlink" href="#prepare-your-disk" title="Permanent link">&para;</a></h3>
+<ol>
+<li>Check all disks</li>
+</ol>
+<p>To list all disk partitions and differentiate, run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>lsblk
+</code></pre></div>
+<blockquote>
+<p><code>lsblk</code> means "list all block devices"</p>
+</blockquote>
+<p>If you disks have the same capacity or even model, execute this to further investigate:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a>fdisk<span class="w"> </span>-l
+</code></pre></div>
+<blockquote>
+<p><code>fdisk</code> is a CLI programme to manage disk partition table, we are calling to "list all partition tables of all disks".</p>
+</blockquote>
+<ol>
+<li>Alternate your partition table </li>
+</ol>
+<p>Execute this in your terminal:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a>cfdisk<span class="w"> </span>&lt;target<span class="w"> </span>disk&gt;
+</code></pre></div>
+<blockquote>
+<p><code>cfdisk</code> is a more user-friendly utility compared with <code>fdisk</code>, it provides with a Terminal User Interface (or Curses-based User Interface).</p>
+</blockquote>
+<p>For example, to edit the partition table of <code>/dev/sda</code> with the programme, execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>cfdisk<span class="w"> </span>/dev/sda
+</code></pre></div>
+<blockquote>
+<p>Note that Arch Linux will store all vmlinuz kernel images (or bzImage) to <code>/boot</code>, so it's recommended that the partition should be no less than 500M. If you are about to use multiple kernels, adjust the capacity according to you demand.</p>
+</blockquote>
+<p>Take a 60G disk as an example, after alternating its partition table, it might look like this:</p>
+<table>
+<thead>
+<tr>
+<th><code>/dev/sda</code></th>
+<th>Size</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>/dev/sda1</code></td>
+<td>0.5G</td>
+<td>EFI System</td>
+</tr>
+<tr>
+<td><code>/dev/sda2</code></td>
+<td>40G</td>
+<td>Linux root (x86-64)</td>
+</tr>
+<tr>
+<td><code>/dev/sda3</code></td>
+<td>19.5G</td>
+<td>Linux home</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Initialise partitions</li>
+</ol>
+<p>Please do run <code>lsblk</code> again to refer to the output</p>
+<p>We will continue with the our instance above to make file systems:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>mkfs.fat<span class="w"> </span>-F32<span class="w"> </span>/dev/sda1<span class="w"> </span>-n<span class="w"> </span>ARCH
+<a id="__codelineno-23-2" name="__codelineno-23-2" href="#__codelineno-23-2"></a>mkfs.btrfs<span class="w"> </span>/dev/sda2<span class="w"> </span>-f
+<a id="__codelineno-23-3" name="__codelineno-23-3" href="#__codelineno-23-3"></a>mkfs.f2fs<span class="w"> </span>/dev/sda3<span class="w"> </span>-f<span class="w"> </span>-l<span class="w"> </span>Home
+</code></pre></div>
+<blockquote>
+<p><code>mkfs</code> is a programme to make file systems on a partition.</p>
+</blockquote>
+<ol>
+<li>Check your mirror list</li>
+</ol>
+<p>Execute the following command to inspect and edit the mirror list:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a>nano<span class="w"> </span>/etc/pacman.d/mirrorlist
+</code></pre></div>
+<p>Add whichever mirror server you want and press <code>Control+O</code> to write in, then <code>Enter</code> to confirm to use the original file name, hit <code>Control+X</code> to exit.</p>
+<p>For example, you can write in this on top to prioritise this mirror:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a>Server = https://mirrors.cernet.edu.cn/archlinux/$repo/os/$arch
+</code></pre></div>
+<p>To learn more about this mirror, head to its <a href="https://mirrors.cernet.edu.cn/about">official website</a></p>
+<p><strong>Now, you are ready to proceed with the installation</strong></p>
+<h2 id="perform-the-installation-in-the-live-iso-environment">Perform the installation in the Live ISO environment<a class="headerlink" href="#perform-the-installation-in-the-live-iso-environment" title="Permanent link">&para;</a></h2>
+<h3 id="install-using-archinstall-helper">Install using <code>archinstall</code> helper<a class="headerlink" href="#install-using-archinstall-helper" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>To customise more, please refer to the manual installation section below.</p>
+</blockquote>
+<p>To ensure your smooth installation, please always use the latest version of <code>archinstall</code>.</p>
+<p>Execute this to get <code>archinstall</code> up-to-date:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a>pacman<span class="w"> </span>-Sy<span class="w"> </span>archinstall
+</code></pre></div>
+<blockquote>
+<p><code>pacman</code> is the package manager for Arch Linux, <code>-Sy</code> means synchronise with remote database and update local package index, you can interpret this as "update local databse and install <code>archinstall</code>".</p>
+</blockquote>
+<p><code>archinstall</code> is an automatic installer for Arch Linux, which gives us a "quiz" to collect necessary information to perform the installation.</p>
+<blockquote>
+<p>Pay attention to the <em>Mirrors</em> of <code>archinstall</code>, it would be better to select local mirror servers to speed up the process.</p>
+</blockquote>
+<p>Also, select <em>Manual Partitioning</em> in <em>Disk configuration</em> and hit <code>Space</code> to the partition table you have just created, then <code>Enter</code> to proceed.</p>
+<p>We will stick to our example given above:</p>
+<table>
+<thead>
+<tr>
+<th>Status</th>
+<th>Device</th>
+<th>Size</th>
+<th>FS type</th>
+<th>Mountpoint</th>
+<th>Mount options</th>
+<th>Flags</th>
+<th>Btrfs vol</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>existing</td>
+<td><code>/dev/sda1</code></td>
+<td>524 MB</td>
+<td>fat32</td>
+<td><code>/boot</code></td>
+<td></td>
+<td>Boot, ESP</td>
+<td></td>
+</tr>
+<tr>
+<td>modify</td>
+<td><code>/dev/sda2</code></td>
+<td>42 GB</td>
+<td>btrfs</td>
+<td></td>
+<td>compress=zstd</td>
+<td></td>
+<td>2 subvolume</td>
+</tr>
+<tr>
+<td>existing</td>
+<td><code>/dev/sda3</code></td>
+<td>20 GB</td>
+<td>f2fs</td>
+<td><code>/home</code></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<p>As for btrfs subvolumes, you can consult to the following configuration:</p>
+<table>
+<thead>
+<tr>
+<th>name</th>
+<th>mountpoint</th>
+<th>compress</th>
+<th>nodatacow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@</code></td>
+<td><code>/</code></td>
+<td>True</td>
+<td>False</td>
+</tr>
+<tr>
+<td><code>@log</code></td>
+<td><code>/var/log</code></td>
+<td>False</td>
+<td>True</td>
+</tr>
+<tr>
+<td><code>@pkg</code></td>
+<td><code>/var/cache/pacman/pkg</code></td>
+<td>False</td>
+<td>True</td>
+</tr>
+</tbody>
+</table>
+<p>The rest can be altered to fit your preferrence.</p>
+<table>
+<thead>
+<tr>
+<th>Options</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mirrors</td>
+<td><em>Custom</em></td>
+</tr>
+<tr>
+<td>Locales</td>
+<td><em>Custom</em></td>
+</tr>
+<tr>
+<td>Disk configuration</td>
+<td>Manual Partitioning</td>
+</tr>
+<tr>
+<td>Disk encryption</td>
+<td></td>
+</tr>
+<tr>
+<td>Bootloader</td>
+<td>Grub</td>
+</tr>
+<tr>
+<td>Swap</td>
+<td>False</td>
+</tr>
+<tr>
+<td>Hostname</td>
+<td><em>Custom</em></td>
+</tr>
+<tr>
+<td>Root password</td>
+<td><strong>*</strong>*</td>
+</tr>
+<tr>
+<td>User account</td>
+<td>1 User(s)</td>
+</tr>
+<tr>
+<td>Profile</td>
+<td>Desktop</td>
+</tr>
+<tr>
+<td>Audio</td>
+<td>Pipewire</td>
+</tr>
+<tr>
+<td>Kernels</td>
+<td>linux</td>
+</tr>
+<tr>
+<td>Additional packages</td>
+<td><em>Custom</em></td>
+</tr>
+<tr>
+<td>Network configuration</td>
+<td>Use NetworkManager</td>
+</tr>
+<tr>
+<td>Timezone</td>
+<td><em>Custom</em></td>
+</tr>
+<tr>
+<td>Automatic time sync (NTP)</td>
+<td>True</td>
+</tr>
+<tr>
+<td>Optional repositories</td>
+<td>multilib</td>
+</tr>
+</tbody>
+</table>
+<p>As for <em>Additional packages</em>, you could add:</p>
+<p><code>firefox</code> <code>nano</code> <code>fish</code></p>
+<p>In <em>Profile</em>, it is recommended to use KDE Plasma or Gnome if you are new to GNU/Linux.</p>
+<p>Eventually, hit <em>Install</em> to start.</p>
+<h3 id="installing-arch-in-the-manual-way">Installing Arch in the manual way<a class="headerlink" href="#installing-arch-in-the-manual-way" title="Permanent link">&para;</a></h3>
+<blockquote>
+<p>While <code>archinstall</code> provides us with an automatic installation, the manual approach gives us more flexibility. We will use LVM and <code>systemd-boot</code> to boot Unified Kernel Image in this case.</p>
+</blockquote>
+<h4 id="prepare-your-lvm">Prepare your LVM<a class="headerlink" href="#prepare-your-lvm" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>LVM stands for Linux Volume Manager, which relies on the device mapper of the Linux kernel to virtualise storage devices to a storage pool where you can create virtual partitions called Logical Volumes. This deals with the inflexibility of manipulating partitions on a disk that requires you to assign consecutive sectors.</p>
+</blockquote>
+<p>Back to partition table editing via <code>cfdisk</code>, we can create only two partitions to keep it simple. One for <code>/boot</code>, the other for LVM physical volume.</p>
+<p>So, we will still have to make <code>/dev/sda1</code> a FAT32:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>mkfs.fat<span class="w"> </span>-F32<span class="w"> </span>/dev/sda1
+</code></pre></div>
+<p>As for <code>/dev/sda2</code>, we will have to make it a LVM2 physical volume:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>pvcreate<span class="w"> </span>/dev/sda2
+</code></pre></div>
+<blockquote>
+<p><code>pvcreate</code> stands for "Create Physical Volumes", simply assign block devices to get it done.</p>
+</blockquote>
+<p>After that, create a volume group:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-29-1" name="__codelineno-29-1" href="#__codelineno-29-1"></a>vgcreate<span class="w"> </span>Arch<span class="w"> </span>/dev/sda2
+</code></pre></div>
+<blockquote>
+<p><code>vgcreate</code> stands for "Create Volume Group" and give it a name (we named it "Arch" here). You can specify only one or multiple LVM physical volumes to create a group.</p>
+</blockquote>
+<p>Finally, create logical volumes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-30-1" name="__codelineno-30-1" href="#__codelineno-30-1"></a>lvcreate<span class="w"> </span>-L<span class="w"> </span>40G<span class="w"> </span>Arch<span class="w"> </span>-n<span class="w"> </span>root
+<a id="__codelineno-30-2" name="__codelineno-30-2" href="#__codelineno-30-2"></a>lvcreate<span class="w"> </span>-l<span class="w"> </span><span class="m">100</span>%FREE<span class="w"> </span>Arch<span class="w"> </span>-n<span class="w"> </span>home
+</code></pre></div>
+<blockquote>
+<p>Easy to know that <code>lvcreate</code> stands for "Create Logical Volume" in a volume group and name it. You can allocate the capacity for volumes by simply implying size or by percentage of redundance.</p>
+</blockquote>
+<h4 id="create-file-systems-in-lvm">Create file systems in LVM<a class="headerlink" href="#create-file-systems-in-lvm" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Logical volumes are partitions mapped under a volume group.</p>
+</blockquote>
+<p>We will use btrfs for the root directory an f2fs for home here.</p>
+<ol>
+<li>Create file systems</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-31-1" name="__codelineno-31-1" href="#__codelineno-31-1"></a>mkfs.btrfs<span class="w"> </span>/dev/Arch/root
+<a id="__codelineno-31-2" name="__codelineno-31-2" href="#__codelineno-31-2"></a>mkfs.f2fs<span class="w"> </span>/dev/Arch/home
+</code></pre></div>
+<ol>
+<li>Mount and create btrfs subvolumes</li>
+</ol>
+<p>Mount the whole btrfs container to <code>/mnt</code> by executing:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-32-1" name="__codelineno-32-1" href="#__codelineno-32-1"></a>mount<span class="w"> </span>/dev/Arch/root<span class="w"> </span>/mnt
+</code></pre></div>
+<p>Create subvolumes in the container by running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-33-1" name="__codelineno-33-1" href="#__codelineno-33-1"></a><span class="nb">cd</span><span class="w"> </span>/mnt
+<a id="__codelineno-33-2" name="__codelineno-33-2" href="#__codelineno-33-2"></a>btrfs<span class="w"> </span>subvolume<span class="w"> </span>create<span class="w"> </span>@
+<a id="__codelineno-33-3" name="__codelineno-33-3" href="#__codelineno-33-3"></a>btrfs<span class="w"> </span>subvolume<span class="w"> </span>create<span class="w"> </span>@log
+<a id="__codelineno-33-4" name="__codelineno-33-4" href="#__codelineno-33-4"></a>btrfs<span class="w"> </span>subvolume<span class="w"> </span>create<span class="w"> </span>@pkg
+<a id="__codelineno-33-5" name="__codelineno-33-5" href="#__codelineno-33-5"></a><span class="nb">cd</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>umount<span class="w"> </span>/mnt
+</code></pre></div>
+<ol>
+<li>Mount neccessary partitions</li>
+</ol>
+<p>First, mount the subvolume to be used as root directory:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-34-1" name="__codelineno-34-1" href="#__codelineno-34-1"></a>mount<span class="w"> </span>/dev/Arch/root<span class="w"> </span>-o<span class="w"> </span><span class="nv">subvol</span><span class="o">=</span>@,compress<span class="o">=</span>zstd<span class="w"> </span>/mnt
+</code></pre></div>
+<p>Then, create mounting points for other partitions and subvolumes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-35-1" name="__codelineno-35-1" href="#__codelineno-35-1"></a><span class="nb">cd</span><span class="w"> </span>/mnt
+<a id="__codelineno-35-2" name="__codelineno-35-2" href="#__codelineno-35-2"></a>mkdir<span class="w"> </span>boot<span class="w"> </span>home
+<a id="__codelineno-35-3" name="__codelineno-35-3" href="#__codelineno-35-3"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>./var/log
+<a id="__codelineno-35-4" name="__codelineno-35-4" href="#__codelineno-35-4"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>./var/cache/pacman/pkg
+</code></pre></div>
+<p>Now, mount all partitions and subvolumes:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-36-1" name="__codelineno-36-1" href="#__codelineno-36-1"></a>mount<span class="w"> </span>/dev/sda1<span class="w"> </span>/mnt/boot
+<a id="__codelineno-36-2" name="__codelineno-36-2" href="#__codelineno-36-2"></a>mount<span class="w"> </span>/dev/Arch/home<span class="w"> </span>/mnt/home
+<a id="__codelineno-36-3" name="__codelineno-36-3" href="#__codelineno-36-3"></a>mount<span class="w"> </span>/dev/Arch/root<span class="w"> </span>-o<span class="w"> </span><span class="nv">subvol</span><span class="o">=</span>@log,nodatacow<span class="w"> </span>/mnt/var/log
+<a id="__codelineno-36-4" name="__codelineno-36-4" href="#__codelineno-36-4"></a>mount<span class="w"> </span>/dev/Arch/root<span class="w"> </span>-o<span class="w"> </span><span class="nv">subvol</span><span class="o">=</span>@pkg,nodatacow<span class="w"> </span>/mnt/var/cache/pacman/pkg
+</code></pre></div>
+<p>Run <code>lsblk</code> to double check and make sure all mounted correctly.</p>
+<h4 id="install-basic-packages">Install basic packages<a class="headerlink" href="#install-basic-packages" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p><code>pacstrap</code> is a seeder of Arch Linux, it can be used to create the whole tree structured hierarchy root directory and install some basic packages such as a package manager.</p>
+</blockquote>
+<p>Execute the following command to install:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-37-1" name="__codelineno-37-1" href="#__codelineno-37-1"></a><span class="w"> </span>pacstrap<span class="w"> </span>-K<span class="w"> </span>/mnt<span class="w"> </span>base<span class="w"> </span>base-devel<span class="w"> </span>linux-firmware<span class="w"> </span>linux<span class="w"> </span>linux-headers<span class="w"> </span>nano<span class="w"> </span>fish<span class="w"> </span>networkmanager<span class="w"> </span>btrfs-progs<span class="w"> </span>f2fs-tools<span class="w"> </span>dosfstools<span class="w"> </span>lvm2
+</code></pre></div>
+<p>For Intel CPUs, you will need <code>intel-ucode</code>, and <code>amd-ucode</code> for AMD CPUs.</p>
+<blockquote>
+<p>To use the <code>linux-zen</code> kernel, please replace <code>linux</code> <code>linux-headers</code> with <code>linux-zen</code> <code>linux-zen-headers</code>.</p>
+</blockquote>
+<h4 id="create-a-file-system-table-for-the-new-installation">Create a file system table for the new installation<a class="headerlink" href="#create-a-file-system-table-for-the-new-installation" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>You can use <code>genfstab</code> to generate a file system table automatically in the Arch Linux Live ISO.</p>
+</blockquote>
+<p>To generate, run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-38-1" name="__codelineno-38-1" href="#__codelineno-38-1"></a><span class="nb">cd</span>
+<a id="__codelineno-38-2" name="__codelineno-38-2" href="#__codelineno-38-2"></a>genfstab<span class="w"> </span>-U<span class="w"> </span>/mnt<span class="w"> </span>&gt;<span class="w"> </span>/mnt/etc/fstab
+</code></pre></div>
+<p>Then we'll have to inspect and edit <code>/mnt/etc/fstab</code> if needed.</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-39-1" name="__codelineno-39-1" href="#__codelineno-39-1"></a>nano<span class="w"> </span>/mnt/etc/fstab
+</code></pre></div>
+<ul>
+<li>If you would like to use <code>fstrim.timer</code> for periodic trim, disable <code>discard</code> for desired file systems.</li>
+</ul>
+<p>For btrfs and f2fs, change <code>discard</code> to <code>nodiscard</code> in the options column.</p>
+<h4 id="enter-chroot-environment-to-configure-the-system">Enter chroot environment to configure the system<a class="headerlink" href="#enter-chroot-environment-to-configure-the-system" title="Permanent link">&para;</a></h4>
+<blockquote>
+<p>Arch Linux scripted <code>arch-chroot</code> to foster changing root directory, to login as root to the new system.</p>
+</blockquote>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-40-1" name="__codelineno-40-1" href="#__codelineno-40-1"></a>arch-chroot<span class="w"> </span>/mnt
+</code></pre></div>
+<ol>
+<li>Set local timezone</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-41-1" name="__codelineno-41-1" href="#__codelineno-41-1"></a>ln<span class="w"> </span>-sf<span class="w"> </span>/usr/share/zoneinfo/Asia/Hong_Kong<span class="w"> </span>/etc/localtime
+</code></pre></div>
+<blockquote>
+<p><code>ln -sf</code> will create a symbolic link named <code>/etc/localtime</code> that points to <code>/usr/share/zoneinfo/Asia/Hong_Kong</code>.</p>
+</blockquote>
+<ol>
+<li>Set hostname</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-42-1" name="__codelineno-42-1" href="#__codelineno-42-1"></a>nano<span class="w"> </span>/etc/hostname
+</code></pre></div>
+<p>Enter your hostname in the first line, you could try to name in the <code>&lt;owner&gt;-&lt;operating system&gt;-&lt;device model or brand&gt;</code> pattern.</p>
+<p>For example:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-43-1" name="__codelineno-43-1" href="#__codelineno-43-1"></a>Jimmy-Arch-SP5
+</code></pre></div>
+<ol>
+<li>Set locales</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-44-1" name="__codelineno-44-1" href="#__codelineno-44-1"></a>nano<span class="w"> </span>/etc/locale.gen
+</code></pre></div>
+<blockquote>
+<p>You MUST uncomment <code>en_US.UTF-8 UTF-8</code>. On this basis, you can uncomment whatever you want to have multilingual support.</p>
+</blockquote>
+<p>Now, generate locales by executing:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-45-1" name="__codelineno-45-1" href="#__codelineno-45-1"></a>locale-gen
+</code></pre></div>
+<ol>
+<li>Install neccessary packages, drivers and KDE Plasma</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-46-1" name="__codelineno-46-1" href="#__codelineno-46-1"></a>pacman<span class="w"> </span>-Sy<span class="w"> </span>openssh<span class="w"> </span>htop<span class="w"> </span>wget<span class="w"> </span>iwd<span class="w"> </span>wireless_tools<span class="w"> </span>wpa_supplicant<span class="w"> </span>smartmontools<span class="w"> </span>xdg-utils<span class="w"> </span>plasma-meta<span class="w"> </span>plasma-workspace<span class="w"> </span>ark<span class="w"> </span>dolphin<span class="w"> </span>konsole<span class="w"> </span>egl-wayland<span class="w"> </span>pipewire<span class="w"> </span>pipewire-alsa<span class="w"> </span>pipewire-jack<span class="w"> </span>pipewire-pulse<span class="w"> </span>gst-plugin-pipewire<span class="w"> </span>libpulse<span class="w"> </span>wireplumber<span class="w"> </span>sddm
+</code></pre></div>
+<p>For laptops that have hybrid configuration with Intel GPU and NVIDIA GPU:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-47-1" name="__codelineno-47-1" href="#__codelineno-47-1"></a>pacman<span class="w"> </span>-S<span class="w"> </span>mesa<span class="w"> </span>intel-media-driver<span class="w"> </span>libva-intel-driver<span class="w"> </span>vulkan-intel<span class="w"> </span>xorg-server<span class="w"> </span>xorg-xinit<span class="w"> </span>nvidia-dkms
+</code></pre></div>
+<ol>
+<li>Configure Unified Kernel Image</li>
+</ol>
+<blockquote>
+<p>Arch Linux authors coded <code>mkinitcpio</code> and use it to create initramfs by default.</p>
+</blockquote>
+<p>Create a directory for Unified Kernel Images:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-48-1" name="__codelineno-48-1" href="#__codelineno-48-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>/boot/EFI/Linux
+</code></pre></div>
+<p>Change settings for <code>mkinitcpio</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-49-1" name="__codelineno-49-1" href="#__codelineno-49-1"></a>nano<span class="w"> </span>/etc/mkinitcpio.conf
+</code></pre></div>
+<p>Add <code>lvm2</code> to the HOOKS line that have been uncommented to support mounting a root directory that resides in a LVM logical volume.</p>
+<p>Now, change kernel initramfs generation settings:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-50-1" name="__codelineno-50-1" href="#__codelineno-50-1"></a>nano<span class="w"> </span>/etc/mkinitcpio.d/&lt;package<span class="w"> </span>name&gt;.preset
+</code></pre></div>
+<p>Comment <code>default_image</code> and <code>fallback_image</code>.</p>
+<p>Uncomment <code>default_uki</code> and <code>fallback_uki</code>, change the stored location from <code>/efi/EFI/Linux/&lt;package name&gt;.efi</code> to <code>/boot/EFI/Linux/&lt;package name&gt;.efi</code>.</p>
+<p>Finally, set kernel parameters:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-51-1" name="__codelineno-51-1" href="#__codelineno-51-1"></a>mkdir<span class="w"> </span>/etc/cmdline.d
+</code></pre></div>
+<blockquote>
+<p><code>mkinitcpio</code> will source <code>/etc/cmdline.d</code> for kernel parameters when building an image. You can use snippets in the folder.</p>
+</blockquote>
+<p>To specify root directory mounting options:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-52-1" name="__codelineno-52-1" href="#__codelineno-52-1"></a>nano<span class="w"> </span>/etc/cmdline.d/root.conf
+</code></pre></div>
+<p>Write the following content into this configuration file:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-53-1" name="__codelineno-53-1" href="#__codelineno-53-1"></a>root=/dev/Arch/root rootflags=subvol=@ rootfstype=btrfs rw
+</code></pre></div>
+<p>Execute this to build all Unified Kernel Images for all kernels:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-54-1" name="__codelineno-54-1" href="#__codelineno-54-1"></a>mkinitcpio<span class="w"> </span>-P
+</code></pre></div>
+<ol>
+<li>Install the <code>systemd-boot</code> bootloader</li>
+</ol>
+<p>To install, execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-55-1" name="__codelineno-55-1" href="#__codelineno-55-1"></a>bootctl<span class="w"> </span>install
+</code></pre></div>
+<p>Then change settings by running:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-56-1" name="__codelineno-56-1" href="#__codelineno-56-1"></a>nano<span class="w"> </span>/boot/loader/loader.conf
+</code></pre></div>
+<p>It's recommended to uncomment <code>timeout 3</code> and <code>console-mode keep</code>.</p>
+<p>Also, append these two lines:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-57-1" name="__codelineno-57-1" href="#__codelineno-57-1"></a>auto-entries yes
+<a id="__codelineno-57-2" name="__codelineno-57-2" href="#__codelineno-57-2"></a>editor yes
+</code></pre></div>
+<p>At last, run this command to check all boot entries:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-58-1" name="__codelineno-58-1" href="#__codelineno-58-1"></a>bootctl<span class="w"> </span>list
+</code></pre></div>
+<ol>
+<li>Install packages</li>
+</ol>
+<blockquote>
+<p>If you are using the EndeavourOS Live ISO to install Arch Linux, please DO delete the lines about the EndeavourOS repository in <code>/etc/pacman.conf</code>.</p>
+</blockquote>
+<p>Execute the following command to perform package installation:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-59-1" name="__codelineno-59-1" href="#__codelineno-59-1"></a>pacman<span class="w"> </span>-S<span class="w"> </span>fcitx5<span class="w"> </span>fcitx5-chinese-addons<span class="w"> </span>kcm-fcitx5<span class="w"> </span>fcitx5-qt<span class="w"> </span>fcitx5-gtk<span class="w"> </span>ttf-sarasa-gothic<span class="w"> </span>snapper<span class="w"> </span>snap-pac<span class="w"> </span>power-profiles-daemon
+</code></pre></div>
+<blockquote>
+<p>Just letting you know that <code>power-profiles-daemon</code> is a GUI power plan manager with great integration with Plasma. You could replace it with <code>tlp</code> if you like, but remember to enable services.</p>
+</blockquote>
+<ol>
+<li>User management</li>
+</ol>
+<p>Execute the following command as root to change the passcode for root:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-60-1" name="__codelineno-60-1" href="#__codelineno-60-1"></a>passwd
+</code></pre></div>
+<p>To add a user and create a home directory, and add the user to wheel privileged group, run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-61-1" name="__codelineno-61-1" href="#__codelineno-61-1"></a>useradd<span class="w"> </span>-m<span class="w"> </span>-G<span class="w"> </span>wheel<span class="w"> </span>&lt;username&gt;
+</code></pre></div>
+<ol>
+<li>Allow a user to execute <code>sudo</code> for escalation</li>
+</ol>
+<blockquote>
+<p><code>sudo</code> is the most common administration tool in GNU/Linux, it gives a user temporal root permission without switching user.</p>
+</blockquote>
+<p>To edit the allowlist, run:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-62-1" name="__codelineno-62-1" href="#__codelineno-62-1"></a>nano<span class="w"> </span>/etc/sudoers
+</code></pre></div>
+<p>Locate the line:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-63-1" name="__codelineno-63-1" href="#__codelineno-63-1"></a>root ALL=(ALL:ALL) ALL
+</code></pre></div>
+<p>and insert this line below to permit a user to use <code>sudo</code>:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-64-1" name="__codelineno-64-1" href="#__codelineno-64-1"></a>&lt;username&gt; ALL=(ALL:ALL) ALL
+</code></pre></div>
+<p>Then save the file and quit.</p>
+<ol>
+<li>Unmount all disks</li>
+</ol>
+<p>Back to the shell and execute <code>exit</code> or press <code>Control+D</code> to exit the chroot environment.</p>
+<p>Execute <code>cd</code> to change directory to the user's home directory.</p>
+<p>To unmount all disks, execute:</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-65-1" name="__codelineno-65-1" href="#__codelineno-65-1"></a>umount<span class="w"> </span>-Rl<span class="w"> </span>/mnt
+</code></pre></div>
+<p>Then reboot into Arch Linux to check if everything works fine.</p>
+<p><strong>Now, you have finished the basic installation of Arch Linux</strong></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../Arch%20%E4%BD%BF%E7%94%A8%E8%B2%BC%E5%A3%AB/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 使用貼士">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                使用貼士
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../Tips%20for%20Using%20Arch/" class="md-footer__link md-footer__link--next" aria-label="下一页: Tips for Using Arch">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                Tips for Using Arch
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Content from E-Vertin/GNU-Linux-Guides · Licensed under CC BY-NC-SA 4.0
+
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
