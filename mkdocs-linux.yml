@@ -1,3 +1,4 @@
+# MkDocs configuration for the /linux/ column.
 site_name: GNU/Linux Guides
 site_description: GNU/Linux installation guides, tips and notes
 site_url: https://nzj-jimmy.github.io/linux/
