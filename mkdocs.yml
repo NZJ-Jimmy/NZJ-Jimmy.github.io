@@ -1,0 +1,95 @@
+site_name: Jimmy's Notes
+site_author: Jimmy Leung Chi-chun
+site_description: Personal notes, guides and technical writing by Jimmy Leung Chi-chun
+site_url: https://nzj-jimmy.github.io/
+
+repo_url: https://github.com/NZJ-Jimmy/NZJ-Jimmy.github.io
+repo_name: NZJ-Jimmy/NZJ-Jimmy.github.io
+edit_uri: edit/main/docs/
+
+theme:
+  name: material
+  language: zh
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - navigation.indexes
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.action.edit
+  palette:
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+
+plugins:
+  - search
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.details
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+
+extra_javascript:
+  - javascripts/mathjax.js
+  - https://unpkg.com/mathjax@3/es5/tex-mml-chtml.js
+
+nav:
+  - 首页: index.md
+  - GNU/Linux:
+      - 专栏首页: linux/README.zh-HK.md
+      - Arch Linux:
+          - 安裝指南: linux/Arch Linux Guide/Arch Linux 安裝指南.md
+          - 使用貼士: linux/Arch Linux Guide/Arch 使用貼士.md
+          - Installation Guide: linux/Arch Linux Guide/Installation Guide for Arch Linux.md
+          - Tips for Using Arch: linux/Arch Linux Guide/Tips for Using Arch.md
+      - EndeavourOS:
+          - Installation Guide: linux/EOS Guide/Installation Guide for Endeavour OS, A Distro Based On archlinux.md
+      - Gentoo Linux:
+          - 安裝指南: linux/Gentoo Guide/Gentoo Linux 安裝指南.md
+          - 使用貼士: linux/Gentoo Guide/Gentoo 使用貼士.md
+          - 磁碟加密安裝: linux/Gentoo Guide/Gentoo 磁碟加密安裝.md
+          - 安全啓動指南: linux/Gentoo Guide/Gentoo 安全啓動啓用指南.md
+          - Installation Guide: linux/Gentoo Guide/Installation Guide for Gentoo Linux.md
+          - Gentoo on LUKS: linux/Gentoo Guide/Gentoo on LUKS.md
+          - Secure Boot via Shim: linux/Gentoo Guide/Instructions for enabling Secure Boot via Shim on Gentoo.md
+          - Tips for Using Gentoo: linux/Gentoo Guide/Tips for Using Gentoo.md
+      - 通用技巧:
+          - General Tips: linux/General Tips/General Tips.md
+  - 文章:
+      - 2023:
+          - 集合与对称差习题: posts/2023-06-14-discrete-math.md
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/NZJ-Jimmy
+      name: GitHub
+
+copyright: >
+  © Jimmy Leung Chi-chun ·
+  GNU/Linux Guides content is sourced from E-Vertin/GNU-Linux-Guides
+  under CC BY-NC-SA 4.0
